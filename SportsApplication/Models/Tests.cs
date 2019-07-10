@@ -15,11 +15,10 @@ namespace SportsApplication.Models
         public int ParticipantCount { get; set; }
 
         public virtual ICollection<Enrollment> Enrollments { get; set; }
+    }
 
-        //public enum TestNames
-        //{
-        //    Cooper_Test,
-        //    Sprint_Test
-        //}
+    public class TestType
+    {
+        
     }
 }

@@ -19,17 +19,40 @@
             </div>
             <div class="form-group">
                 <label asp-for="ParticipantName" class="control-label"></label>
-                <input asp-for="ParticipantName" class="form-control" />
+                <select asp-for="ParticipantName" class="form-control">
+                    
+                    <option>Queen Jacobi</option>
+                    <option>Magen Faye</option>
+                    <option>Delicia Ledonne</option>
+                    <option>Camille Grantham</option>
+                    <option>Marc Voth</option>
+                    <option>Randy Rondon</option>
+                    <option>Delora Saville</option>
+                    <option>Rosario Reuben</option>
+                    <option>Lula Uhlman</option>
+                    <option>Peter Jensen</option>
+                    <option>Morten Clement</option>
+                    <option>Pelle Yang</option>
+                    <option>Saren Nielsen</option>
+                    <option>Holger Pedersen</option>
+                    <option>Rune Frandsen</option>
+                </select>
                 <span asp-validation-for="ParticipantName" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Distance" class="control-label"></label>
-                <input asp-for="Distance" class="form-control" />
+                <input asp-for="Distance" class="form-control"/>
                 <span asp-validation-for="Distance" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="Fitness" class="control-label"></label>
-                <input asp-for="Fitness" class="form-control" />
+                <select asp-for="Fitness" class="form-control">
+                    
+                    <option>Very Good</option>
+                    <option>Good</option>
+                    <option>Average</option>
+                    <option>Below Average</option>
+                </select>
                 <span asp-validation-for="Fitness" class="text-danger"></span>
             </div>
             <div class="form-group">

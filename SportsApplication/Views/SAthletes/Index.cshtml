@@ -4,44 +4,51 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Index</h2>
+@*<h2 style="text-align:center; padding-bottom:2.5em; padding-top:1em">
+       @Html.DisplayNameFor(model => )
+    </h2>*@
 
-<p>
-    <a asp-action="Create">Create New</a>
-</p>
+
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th style="text-align:center">
                 @Html.DisplayNameFor(model => model.Ranking)
             </th>
-            <th>
+            <th style="text-align:center">
                 @Html.DisplayNameFor(model => model.Seconds)
             </th>
-            <th>
+            <th style="text-align:center">
                 @Html.DisplayNameFor(model => model.FitnessRating)
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
-@foreach (var item in Model) {
-        <tr>
-            <td>
-                @Html.DisplayFor(modelItem => item.Ranking)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.Seconds)
-            </td>
-            <td>
-                @Html.DisplayFor(modelItem => item.FitnessRating)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.SAthletesID">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.SAthletesID">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.SAthletesID">Delete</a>
-            </td>
-        </tr>
-}
+    <tbody style="text-align:center">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Ranking)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Seconds)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.FitnessRating)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                </td>
+            </tr>
+        }
     </tbody>
 </table>
+<p>
+    <a asp-action="Create" class="btn btn-default" style="width:100%; text-align:center; border-radius:12px">ADD NEW ATHLETE TO TEST</a>
+</p>
+<p>
+    <a asp-action="Delete" class="btn btn-default" style="width:100%; text-align:center; border-radius:12px">DELETE TEST</a>
+</p>

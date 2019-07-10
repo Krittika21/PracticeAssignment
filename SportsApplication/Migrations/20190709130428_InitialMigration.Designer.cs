@@ -10,8 +10,8 @@ using SportsApplication.Models;
 namespace SportsApplication.Migrations
 {
     [DbContext(typeof(SportsApplicationContext))]
-    [Migration("20190708130523_Migrate")]
-    partial class Migrate
+    [Migration("20190709130428_InitialMigration")]
+    partial class InitialMigration
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -44,15 +44,34 @@ namespace SportsApplication.Migrations
 
                     b.Property<int>("AthletesID");
 
+                    b.Property<int>("SAthletesID");
+
                     b.Property<int>("TestsID");
 
                     b.HasKey("EnrollmentID");
 
                     b.HasIndex("AthletesID");
 
+                    b.HasIndex("SAthletesID");
+
                     b.HasIndex("TestsID");
 
                     b.ToTable("Enrollment");
+                });
+
+            modelBuilder.Entity("SportsApplication.Models.SAthletes", b =>
+                {
+                    b.Property<int>("Id");
+
+                    b.Property<string>("FitnessRating");
+
+                    b.Property<string>("Ranking");
+
+                    b.Property<double>("Seconds");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("SAthletes");
                 });
 
             modelBuilder.Entity("SportsApplication.Models.Tests", b =>
@@ -77,6 +96,11 @@ namespace SportsApplication.Migrations
                     b.HasOne("SportsApplication.Models.Athletes", "Athletes")
                         .WithMany("Enrollements")
                         .HasForeignKey("AthletesID")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("SportsApplication.Models.SAthletes", "SAthletes")
+                        .WithMany("Enrollements")
+                        .HasForeignKey("SAthletesID")
                         .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("SportsApplication.Models.Tests", "Tests")

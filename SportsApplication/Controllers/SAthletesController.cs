@@ -33,7 +33,7 @@ namespace SportsApplication.Controllers
             }
 
             var sAthletes = await _context.SAthletes
-                .FirstOrDefaultAsync(m => m.SAthletesID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sAthletes == null)
             {
                 return NotFound();
@@ -87,7 +87,7 @@ namespace SportsApplication.Controllers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Edit(int id, [Bind("SAthletesID,Ranking,Seconds,FitnessRating")] SAthletes sAthletes)
         {
-            if (id != sAthletes.SAthletesID)
+            if (id != sAthletes.Id)
             {
                 return NotFound();
             }
@@ -101,7 +101,7 @@ namespace SportsApplication.Controllers
                 }
                 catch (DbUpdateConcurrencyException)
                 {
-                    if (!SAthletesExists(sAthletes.SAthletesID))
+                    if (!SAthletesExists(sAthletes.Id))
                     {
                         return NotFound();
                     }
@@ -124,7 +124,7 @@ namespace SportsApplication.Controllers
             }
 
             var sAthletes = await _context.SAthletes
-                .FirstOrDefaultAsync(m => m.SAthletesID == id);
+                .FirstOrDefaultAsync(m => m.Id == id);
             if (sAthletes == null)
             {
                 return NotFound();
@@ -146,7 +146,7 @@ namespace SportsApplication.Controllers
 
         private bool SAthletesExists(int id)
         {
-            return _context.SAthletes.Any(e => e.SAthletesID == id);
+            return _context.SAthletes.Any(e => e.Id == id);
         }
     }
 }

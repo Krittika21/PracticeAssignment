@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace SportsApplication.Migrations
 {
-    public partial class Migrate : Migration
+    public partial class InitialMigration : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -20,6 +20,20 @@ namespace SportsApplication.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Athletes", x => x.AthletesID);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "SAthletes",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false),
+                    Ranking = table.Column<string>(nullable: true),
+                    Seconds = table.Column<double>(nullable: false),
+                    FitnessRating = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_SAthletes", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -44,7 +58,8 @@ namespace SportsApplication.Migrations
                     EnrollmentID = table.Column<int>(nullable: false)
                         .Annotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn),
                     TestsID = table.Column<int>(nullable: false),
-                    AthletesID = table.Column<int>(nullable: false)
+                    AthletesID = table.Column<int>(nullable: false),
+                    SAthletesID = table.Column<int>(nullable: false)
                 },
                 constraints: table =>
                 {
@@ -54,6 +69,12 @@ namespace SportsApplication.Migrations
                         column: x => x.AthletesID,
                         principalTable: "Athletes",
                         principalColumn: "AthletesID",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Enrollment_SAthletes_SAthletesID",
+                        column: x => x.SAthletesID,
+                        principalTable: "SAthletes",
+                        principalColumn: "Id",
                         onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Enrollment_Tests_TestsID",
@@ -69,6 +90,11 @@ namespace SportsApplication.Migrations
                 column: "AthletesID");
 
             migrationBuilder.CreateIndex(
+                name: "IX_Enrollment_SAthletesID",
+                table: "Enrollment",
+                column: "SAthletesID");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Enrollment_TestsID",
                 table: "Enrollment",
                 column: "TestsID");
@@ -81,6 +107,9 @@ namespace SportsApplication.Migrations
 
             migrationBuilder.DropTable(
                 name: "Athletes");
+
+            migrationBuilder.DropTable(
+                name: "SAthletes");
 
             migrationBuilder.DropTable(
                 name: "Tests");

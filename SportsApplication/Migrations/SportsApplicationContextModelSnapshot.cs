@@ -42,9 +42,7 @@ namespace SportsApplication.Migrations
 
                     b.Property<int>("AthletesID");
 
-                    b.Property<int>("SAthleteID");
-
-                    b.Property<int?>("SAthletesID");
+                    b.Property<int>("SAthletesID");
 
                     b.Property<int>("TestsID");
 
@@ -61,7 +59,7 @@ namespace SportsApplication.Migrations
 
             modelBuilder.Entity("SportsApplication.Models.SAthletes", b =>
                 {
-                    b.Property<int>("SAthletesID");
+                    b.Property<int>("Id");
 
                     b.Property<string>("FitnessRating");
 
@@ -69,7 +67,7 @@ namespace SportsApplication.Migrations
 
                     b.Property<double>("Seconds");
 
-                    b.HasKey("SAthletesID");
+                    b.HasKey("Id");
 
                     b.ToTable("SAthletes");
                 });
@@ -100,7 +98,8 @@ namespace SportsApplication.Migrations
 
                     b.HasOne("SportsApplication.Models.SAthletes", "SAthletes")
                         .WithMany("Enrollements")
-                        .HasForeignKey("SAthletesID");
+                        .HasForeignKey("SAthletesID")
+                        .OnDelete(DeleteBehavior.Cascade);
 
                     b.HasOne("SportsApplication.Models.Tests", "Tests")
                         .WithMany("Enrollments")

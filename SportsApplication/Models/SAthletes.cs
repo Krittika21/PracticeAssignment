@@ -6,7 +6,7 @@ namespace SportsApplication.Models
     public class SAthletes
     {
         [DatabaseGenerated(DatabaseGeneratedOption.None)]
-        public int SAthletesID { get; set; }
+        public int Id { get; set; }
         //public string TestType { get; set; }
         public string Ranking { get; set; }
         public double Seconds { get; set; }

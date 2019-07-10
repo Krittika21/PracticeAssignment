@@ -4,7 +4,7 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Sports Application</h2>
+<h2 style="text-align:center; padding-bottom:2.5em; padding-top:1em">SPORTS APPLICATION</h2>
 
 <p>
     <a asp-action="Create" class="btn btn-default" style="width:100%; text-align:center; border-radius:12px">CREATE NEW TEST</a>
@@ -12,25 +12,24 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
+            <th  style="text-align:center">
                 @Html.DisplayNameFor(model => model.TestDate)
             </th>
-            <th>
+            <th  style="text-align:center">
                 @Html.DisplayNameFor(model => model.ParticipantCount)
             </th>
-            <th>
+            <th  style="text-align:center">
                 @Html.DisplayNameFor(model => model.TestType)
             </th>
             <th></th>
         </tr>
     </thead>
-    <tbody>
+    <tbody >
         @foreach (var item in Model)
         {
-            <tr>
+            <tr style="text-align:center">
                 <td>
-                    @Html.DisplayFor(modelItem => item.TestDate);
-                    <a asp-action="Details" asp-route-id="@item.TestType"/>
+                    @Html.DisplayFor(modelItem => item.TestDate)
                 </td>
                 <td>
                     @Html.DisplayFor(modelItem => item.ParticipantCount)
@@ -48,12 +47,14 @@
     </tbody>
 
 </table>
-@foreach (var item in Model)
+@*@foreach (var item in Model)
 {
+
+}*@
+@*@using (var type = new ())*@
+@*{
 
 }
     <form method="post">
-        <button asp-controller="Home" asp-action="Index">Click Me</button>
-        <input type="image" src="bridge_autumn_city.ing" alt="Or Click Me" asp-controller="Home"
-               asp-action="Index">
-    </form>
+        <a asp-controller="Athlete" asp-action="Index" asp-route-id="">Click Me</a>
+    </form>*@

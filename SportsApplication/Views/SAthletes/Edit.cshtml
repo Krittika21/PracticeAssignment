@@ -4,32 +4,31 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>CHANGE DATA FOR ATHLETE</h2>
 
-<h4>SAthletes</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <input type="hidden" asp-for="SAthletesID" />
-            <div class="form-group">
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group" style="text-align:center">
                 <label asp-for="Ranking" class="control-label"></label>
                 <input asp-for="Ranking" class="form-control" />
                 <span asp-validation-for="Ranking" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="text-align:center">
                 <label asp-for="Seconds" class="control-label"></label>
                 <input asp-for="Seconds" class="form-control" />
                 <span asp-validation-for="Seconds" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="text-align:center">
                 <label asp-for="FitnessRating" class="control-label"></label>
                 <input asp-for="FitnessRating" class="form-control" />
                 <span asp-validation-for="FitnessRating" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-group" style="text-align:center">
+                <input type="submit" value="Save" class="btn btn-default" style="padding-left:10em; padding-right:10em; border-radius:12px"  />
             </div>
         </form>
     </div>

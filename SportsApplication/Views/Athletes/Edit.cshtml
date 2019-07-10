@@ -4,32 +4,31 @@
     ViewData["Title"] = "Edit";
 }
 
-<h2>Edit</h2>
+<h2>CHANGE DATA FOR ATHLETE</h2>
 
-<h4>Athletes</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Edit">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="AthletesID" />
-            <div class="form-group">
+            <div class="form-group" style="text-align:center">
                 <label asp-for="ParticipantName" class="control-label"></label>
                 <input asp-for="ParticipantName" class="form-control" />
                 <span asp-validation-for="ParticipantName" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="text-align:center">
                 <label asp-for="Distance" class="control-label"></label>
                 <input asp-for="Distance" class="form-control" />
                 <span asp-validation-for="Distance" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="text-align:center">
                 <label asp-for="Fitness" class="control-label"></label>
                 <input asp-for="Fitness" class="form-control" />
                 <span asp-validation-for="Fitness" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Save" class="btn btn-default" />
+            <div class="form-group" style="text-align:center">
+                <input type="submit" value="Save" class="btn btn-default" style="padding-left:10em; padding-right:10em; border-radius:12px" />
             </div>
         </form>
     </div>

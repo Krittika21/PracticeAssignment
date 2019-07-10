@@ -4,36 +4,50 @@
     ViewData["Title"] = "Create";
 }
 
-<h2>Create</h2>
+<h2>ADD NEW ATHLETE TO THE TEST</h2>
 
-<h4>SAthletes</h4>
 <hr />
 <div class="row">
     <div class="col-md-4">
         <form asp-action="Create">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
-            <div class="form-group">
-                <label asp-for="SAthletesID" class="control-label"></label>
-                <input asp-for="SAthletesID" class="form-control" />
-                <span asp-validation-for="SAthletesID" class="text-danger"></span>
+            <div class="form-group" >
+                <label asp-for="Id" class="control-label"></label>
+                <input asp-for="Id" class="form-control" />
+                <span asp-validation-for="Id" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="text-align:center">
                 <label asp-for="Ranking" class="control-label"></label>
-                <input asp-for="Ranking" class="form-control" />
-                <span asp-validation-for="Ranking" class="text-danger"></span>
-            </div>
-            <div class="form-group">
+                <select asp-for="Ranking" class="form-control">
+                    <option>Queen Jacobi</option>
+                    <option>Magen Faye</option>
+                    <option>Delicia Ledonne</option>
+                    <option>Camille Grantham</option>
+                    <option>Marc Voth</option>
+                    <option>Randy Rondon</option>
+                    <option>Delora Saville</option>
+                    <option>Rosario Reuben</option>
+                    <option>Lula Uhlman</option>
+                    </select>
+                    <span asp-validation-for="Ranking" class="text-danger"></span>
+</div>
+            <div class="form-group" style="text-align:center">
                 <label asp-for="Seconds" class="control-label"></label>
                 <input asp-for="Seconds" class="form-control" />
                 <span asp-validation-for="Seconds" class="text-danger"></span>
             </div>
-            <div class="form-group">
+            <div class="form-group" style="text-align:center">
                 <label asp-for="FitnessRating" class="control-label"></label>
-                <input asp-for="FitnessRating" class="form-control" />
+                <select asp-for="FitnessRating" class="form-control">
+                    <option>Very Good</option>
+                    <option>Good</option>
+                    <option>Average</option>
+                    <option>Below Average</option>
+                </select>
                 <span asp-validation-for="FitnessRating" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <input type="submit" value="Create" class="btn btn-default" />
+            <div class="form-group" style="text-align:center">
+                <input type="submit" value="Create" class="btn btn-default" style="padding-left:10em; padding-right:10em; border-radius:12px"/>
             </div>
         </form>
     </div>
